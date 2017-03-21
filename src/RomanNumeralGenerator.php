@@ -1,6 +1,6 @@
 <?php
 
-namespace Larowlan\RomanNumeral;
+namespace Larowlan\RomanNumerals;
 
 /**
  * Defines a class for generating roman numerals from integers.

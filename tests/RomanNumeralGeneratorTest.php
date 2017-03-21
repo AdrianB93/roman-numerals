@@ -1,8 +1,8 @@
 <?php
 
-namespace Larowlan\RomanNumeral\Tests;
+namespace Larowlan\RomanNumerals\Tests;
 
-use Larowlan\RomanNumeral\RomanNumeralGenerator;
+use Larowlan\RomanNumerals\RomanNumeralGenerator;
 
 /**
  * Defines a class for testing roman numeral generation.
