@@ -50,6 +50,6 @@ class RomanNumeralGenerator {
       }
     }
 
-    return $output;
+    return $lowerCase ? strtolower($output) : $output;
   }
 }
