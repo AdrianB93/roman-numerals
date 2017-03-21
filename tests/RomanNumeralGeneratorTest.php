@@ -1,8 +1,8 @@
 <?php
 
-namespace Larowlan\RomanNumeral\Tests;
+namespace Larowlan\RomanNumerals\Tests;
 
-use Larowlan\RomanNumeral\RomanNumeralGenerator;
+use Larowlan\RomanNumerals\RomanNumeralGenerator;
 
 /**
  * Defines a class for testing roman numeral generation.
@@ -14,7 +14,7 @@ class RomanNumeralGeneratorTest extends \PHPUnit_Framework_TestCase {
   /**
    * Generator under test.
    *
-   * @var \Larowlan\RomanNumeral\RomanNumeralGenerator
+   * @var \Larowlan\RomanNumerals\RomanNumeralGenerator
    */
   protected $generator;
 
@@ -27,12 +27,40 @@ class RomanNumeralGeneratorTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * Tests roman numeral generation.
+   * Tests default roman numeral generation.
+   * Default is expected to be uppercase.
    *
    * @dataProvider providerTestGeneration
    */
-  public function testGeneration($number, $expected) {
-    $this->assertEquals($expected, $this->generator->generate($number));
+  public function testDefaultGeneration($number, $expected) {
+    $this->assertEquals(
+      $uppercase = strtoupper($expected),
+      $this->generator->generate($number)
+    );
+  }
+
+  /**
+   * Test roman numeral generation in lowercase.
+   *
+   * @dataProvider providerTestGeneration
+   */
+  public function testLowercaseGeneration($number, $expected) {
+    $this->assertEquals(
+      $lowercase = strtolower($expected),
+      $this->generator->generate($number, $in_lowercase = true)
+    );
+  }
+
+  /**
+   * Test roman numeral generation in uppercase.
+   *
+   * @dataProvider providerTestGeneration
+   */
+  public function testUppercaseGeneration($number, $expected) {
+    $this->assertEquals(
+      $uppercase = strtoupper($expected),
+      $this->generator->generate($number, $in_lowercase = false)
+    );
   }
 
   /**
